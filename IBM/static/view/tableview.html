@@ -36,7 +36,7 @@ function alternate(id){
 					<th>Team</th>
 				</tr>
 			</thead>
-			<tr ng-repeat="employee in employees | orderBy: 'manager' ">
+			<tr ng-repeat="employee in employees |orderBy:'-'">
 				<td>{{employee.name}}</td>
 				<td>{{employee.role}}</td>
 				<td>{{employee.team}}</td>

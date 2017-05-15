@@ -16,6 +16,7 @@
 				if(resolve.employees){
 				
 					var temp=[];
+					console.log(resolve.employees);
 					angular.forEach(resolve.employees,function(value,index){
 						var tempObj ={
 								name:value.name,
@@ -24,18 +25,26 @@
 						
 						if(value.team)
 							{
+
 							 var team="";
+								for(var i=0;i<value.team.length;i++)
+								{
+									team+=value.team[i].name+",";
+								}
+								tempObj.team=team;
+								temp.unshift(tempObj);
+
 							  for(var i=0;i<value.team.length;i++)
 								  {
-								  temp.push(value.team[i]);
+								  temp.unshift(value.team[i]);
 								  team+=value.team[i].name+",";
 								  }
-							  tempObj.team=team;
+
 							}
-						temp.push(tempObj);
+
 					});
 					$scope.employees=temp;
-					
+					console.log(temp);
 				}
 			        }, function(reject){
 			        
